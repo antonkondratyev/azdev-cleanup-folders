@@ -1,0 +1,66 @@
+{
+  "id": "e49baa54-1199-4eef-a5c1-9871ace2bfa8",
+  "name": "CleanupFolders",
+  "friendlyName": "Cleanup Folders",
+  "description": "Cleanup Folders",
+  "author": "Anton Kondratyev",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "helpMarkDown": "",
+  "icons": {
+    "default": "icon.png"
+  },
+  "demands": [],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "minimumAgentVersion": "",
+  "instanceNameFormat": "Cleanup Folders",
+  "groups": [],
+  "inputs": [
+    {
+      "name": "cleanupFoldersPath",
+      "type": "multiLine",
+      "label": "Cleanup Folders Path",
+      "required": true,
+      "defaultValue": "",
+      "properties": {
+        "resizable": true,
+        "rows": "2"
+      },
+      "helpMarkDown": "Directories to clean up old files. Files will be recursively deleted in all subdirectories. Can be separated by a space or a new line. Directory names can't contain spaces."
+    },
+    {
+      "name": "excludeFiles",
+      "type": "multiLine",
+      "label": "Exclude Files",
+      "required": false,
+      "defaultValue": "",
+      "properties": {
+        "resizable": true,
+        "rows": "2"
+      },
+      "helpMarkDown": "File names can't contain spaces. Files can be separated by a space or a new line."
+    },
+    {
+      "name": "retentionDays",
+      "type": "string",
+      "label": "Retention Days",
+      "required": true,
+      "defaultValue": "30",
+      "helpMarkDown": "Number of days from the current date to store files. More older files will be deleted."
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js",
+      "argumentFormat": ""
+    }
+  },
+  "messages": {}
+}
